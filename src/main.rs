@@ -13,7 +13,6 @@ mod substrate;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = Args::parse();
-    // "wss://astar.api.onfinality.io:443/public-ws"
 
     let client = connect_to_node(&args.substrate_node_url).await;
     let (tx, rx) = futures::channel::mpsc::channel::<Block>(1000);
